@@ -65,9 +65,9 @@ def market_condition(df):
     return df
 
 def preprocess(df):
-    #Dictionary of countries to regions
+    # Dictionary of countries to regions
     country_to_region = {
-        'United States': 'North America',
+    'United States': 'North America',
     'Canada': 'North America',
     'Greenland': 'North America',
     'France': 'Western Europe',
@@ -133,13 +133,3 @@ def preprocess(df):
     df = df[df['log_Target_EBITDA'] != -np.inf]
     
     return df
-
-
-mydf=pd.read_csv('./data/Data.csv')
-
-df=clean_data(mydf)
-df=market_condition(df)
-
-
-preprocess(df)
-train_model(df)
