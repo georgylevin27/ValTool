@@ -1,0 +1,5 @@
+.env
+.envrc
+*.ipynb_checkpoints
+*.egg-info
+*.pkl
