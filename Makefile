@@ -6,6 +6,10 @@ reinstall_package:
 	@pip uninstall -y ValTool || :
 	@pip install -e .
 
+run_train:
+	python -c 'from ValTool.interface.main import 
+	python -c 'from ValTool.interface.main import model; model()'
+
 clean:
 	@rm -f */version.txt
 	@rm -f .coverage
@@ -14,3 +18,7 @@ clean:
 	@rm -Rf */__pycache__
 	@rm -Rf */*.pyc
 all: reinstall_package clean
+
+streamlit:
+	streamlit run api.py
+
