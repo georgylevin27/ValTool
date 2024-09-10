@@ -19,6 +19,7 @@ clean:
 all: reinstall_package clean
 
 streamlit:
-	cd ValTool/
 	streamlit run api.py
 
+main:
+	python3 main.py
