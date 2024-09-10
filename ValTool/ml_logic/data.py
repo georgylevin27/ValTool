@@ -1,13 +1,5 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_percentage_error, max_error, mean_absolute_error
-from sklearn.model_selection import RandomizedSearchCV
-from sklearn.ensemble import RandomForestRegressor
-from scipy import stats
 
 def clean_data(df):
     #Change objects into floats and ints
@@ -36,6 +28,7 @@ def clean_data(df):
     df = df[df['EV_EBITDA'] < 100]  #was 500
     df = df[df['Target_Revenues'] > df['Target_EBITDA']]
 
+    print(f"✅Data cleaning complete.")
     return df
   
 def market_condition(df):
@@ -62,6 +55,7 @@ def market_condition(df):
                                     )                                     
     # Step 8: One-hot encode
     df = pd.get_dummies(df, columns=['Market_Condition'], prefix='Market')
+    print(f"✅Market condition created.")
     return df
 
 def preprocess(df):
@@ -131,5 +125,7 @@ def preprocess(df):
     df['log_Target_EBITDA'] = df['Target_EBITDA'].apply(lambda x: -np.log(abs(x)) if x < 0 else np.log(x))
     #Remove -inf value
     df = df[df['log_Target_EBITDA'] != -np.inf]
+    
+    print(f"✅Preprocessing complete.")
     
     return df

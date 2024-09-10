@@ -38,7 +38,7 @@ def clean_data(df):
     df = df[df['EV_EBITDA'] < 100]  #was 500
     df = df[df['Target_Revenues'] > df['Target_EBITDA']]
 
-    print(f"✅Data cleaning complete.")
+    print(f"✅ Data cleaning complete.")
     return df
 
 def market_condition(df):
